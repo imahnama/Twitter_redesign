@@ -1,0 +1,15 @@
+<h1>Log in</h1>
+<%= form_for(:session, url: login_path) do |f| %>
+<div class="">
+  <%= f.text_field :Username, placeholder: "Enter Username"  %>
+</div>
+
+<div class="">
+  <%= f.submit 'Log In' %>
+</div>
+
+  <div class="">
+    <%= link_to "Sign up for Twitter", new_user_path %>
+  </div>
+
+<% end %>
