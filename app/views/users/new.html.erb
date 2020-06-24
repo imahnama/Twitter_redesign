@@ -1,0 +1,34 @@
+<%= form_for (@user), :url => users_path do |f| %>
+
+<div class="">
+  <%= f.label :Username %>
+  <%= f.text_field :Username, placeholder: "Enter Username" %>
+</div>
+
+<div class="">
+  <%= f.label :Fullname %>
+
+  <%= f.text_field :FullName, placeholder: "Enter Fullname" %>
+</div>
+
+<div class="">
+  <%= f.label :Photo %>
+
+  <%= f.file_field :Photo %>
+</div>
+
+<div class="">
+  <%= f.label :CoverImage %>
+
+  <%= f.file_field :CoverImage %>
+</div>
+
+<div class="">
+  <%= f.submit "Sign Up"%>
+</div>
+
+<div class="">
+    <%= link_to "Login in to Twitter", users_path %>
+</div>
+
+<% end %>
