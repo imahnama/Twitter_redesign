@@ -1,0 +1,26 @@
+<section class="main-body">
+  <div>
+    <div class="tweet-box card w-80 ml-5 mr-5">
+     <p class="ml-5 mt-2">Have an Opinion?</p>
+     <%= form_for @opinion, url: opinions_path  do |f| %>
+          <%= f.text_area :Text, class: "form-control w-75 tweet-head ml-5", placeholder: "Compose new tweet" %>
+          <%= f.submit "Tweet", class: "btn btn-primary w-25 ml-5 mt-2 mb-2" %>
+        <% end %>
+     <% if @opinion.errors.full_messages.any? %>
+     <% @opinion.errors.full_messages.each do |message| %>
+            <p><%= message %></p>
+        <% end %>
+        <% end %>
+
+      </div>
+      <div class="tweet-main mt-3 w-80 ml-5 mr-5">
+       <p class="tweet-heading">NEW TWEETS</p>
+
+    </div>
+  </div>
+
+  <aside class="">
+
+  </aside>
+
+</section>
