@@ -10,10 +10,8 @@ class OpinionsController < ApplicationController
     @opinion.AuthorId = current_user.id
 
     if @opinion.save
-      flash[:notice] = 'Tweet created'
-      redirect_to root_path
+      redirect_to opinion_path
     else
-      flash[:alert] = 'something went wrong'
       render 'index'
     end
   end
