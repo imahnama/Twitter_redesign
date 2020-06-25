@@ -1,34 +1,36 @@
+<div class="form">
+
 <%= form_for (@user), :url => users_path do |f| %>
 
-<div class="">
-  <%= f.label :Username %>
-  <%= f.text_field :Username, placeholder: "Enter Username" %>
+ <h1>Sign Up</h1>
+<div class="form-group">
+  <%= f.label :Username %> <br>
+  <%= f.text_field :Username, placeholder: "Enter Username", class: "form-control" %>
 </div>
 
-<div class="">
-  <%= f.label :Fullname %>
-
-  <%= f.text_field :FullName, placeholder: "Enter Fullname" %>
+<div class="form-group">
+  <%= f.label :Fullname %> <br>
+  <%= f.text_field :FullName, placeholder: "Enter Fullname", class: "form-control" %>
 </div>
 
-<div class="">
-  <%= f.label :Photo %>
-
+<div class="form-group">
+  <%= f.label :Photo %> <br>
   <%= f.file_field :Photo %>
 </div>
 
-<div class="">
-  <%= f.label :CoverImage %>
-
+<div class="form-group">
+  <%= f.label :CoverImage %> <br>
   <%= f.file_field :CoverImage %>
 </div>
 
-<div class="">
-  <%= f.submit "Sign Up"%>
+<div class="form-group">
+  <%= f.submit "Sign Up", class: "form-control"%>
 </div>
 
-<div class="">
-    <%= link_to "Login in to Twitter", login_path %>
+<div class="form-group">
+    <%= link_to "Have an Account? Login in", login_path %>
 </div>
 
 <% end %>
+
+</div>
