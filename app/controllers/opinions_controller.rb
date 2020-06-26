@@ -19,7 +19,6 @@ class OpinionsController < ApplicationController
   private
 
   def opinion_params
-     params.require(:opinion).permit(:AuthorId, :Text)
+    params.require(:opinion).permit(:AuthorId, :Text)
   end
-
 end

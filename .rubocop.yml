@@ -21,6 +21,11 @@ Metrics/BlockLength:
   ExcludedMethods: ['describe']
   Max: 30
 
+Naming/MethodName:
+ Enabled: false
+
+Naming/AsciiIdentifiers:
+  Enabled: false
 
 Style/Documentation:
   Enabled: false
