@@ -28,6 +28,15 @@ You should follow the guidelines of the given design, including:
 - typographies: font face, size and weight (use similar ones to the design)
 - layout: composition and space between elements
 
+##Screenshots of the View
+### Homepage
+![screenshot](images/2.png)
+### Log In
+![screenshot](images/1.png)
+### Sign Up
+![screenshot](images/3.png)
+
+
 ## Built With
 
 - Ruby v2.7
