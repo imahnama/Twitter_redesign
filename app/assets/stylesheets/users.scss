@@ -9,14 +9,18 @@
 .main-body {
   display: grid;
   grid-template-columns: 75% 25%;
-  width: 87%;
+  width: 83%;
   margin-left: auto;
   background-color: #F5F6F8;
   height: 100vh;
 }
 
+.bck-color {
+  background-color: #4da6e4;
+}
+
 .main-nav {
-  width: 87%;
+  width: 83%;
   margin-left: auto;
 }
 
@@ -30,20 +34,33 @@
 
 .tweet-heading {
   color: #4da6e4;
+  border-bottom: 1px solid lightgrey;
 }
 
  .tweet-box {
   margin-top: 5em;
-  height: 35vh;
+  height: 30vh;
 }
 
 .nav-icons {
   margin-right: 2em;
 }
 
+.sidenav-contents {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 2em;
+}
+
+.side-icons {
+  margin-top: 0.5em;
+  margin-left: 1em;
+  color: white;
+}
+
 .sidenav {
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 200px; /* Set the width of the sidebar */
+  width: 250px; /* Set the width of the sidebar */
   position: fixed; /* Fixed Sidebar (stay in place on scroll) */
   z-index: 1; /* Stay on top */
   top: 0; /* Stay at the top */
@@ -63,7 +80,7 @@
 }
 
 aside {
-  background-color: blue;
+  height: 100vh;
 }
 
 .side-icons {
