@@ -1,6 +1,20 @@
+<p id="notice"><%= notice %></p>
+
 <div class="form">
 
-<%= form_for (@user), :url => users_path do |f| %>
+<%= form_with(model: @user, local: true) do |f| %>
+
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
  <h1>Sign Up</h1>
 <div class="form-group">
@@ -24,11 +38,11 @@
 </div>
 
 <div class="form-group">
-  <%= f.submit "Sign Up", class: "form-control"%>
+  <%= f.submit "Sign Up", class: "form-control bck-color"%>
 </div>
 
 <div class="form-group">
-    <%= link_to "Have an Account? Login in", login_path %>
+    <%= link_to "Have an Account? Login in", root_path %>
 </div>
 
 <% end %>

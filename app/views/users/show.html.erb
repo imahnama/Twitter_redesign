@@ -1,22 +1,2 @@
 
-<nav class="navbar main-nav">
-  <a class="navbar-brand" href="#">
-    <img src="/docs/1.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-    Hotel Reviews
-  </a>
-
-  <ul>
-    <span class="nav-icons"><i class="fas fa-pen"></i></span>
-    <span class="nav-icons"><i class="fas fa-envelope-square"></i></span>
-    <span class="nav-icons"><i class="fas fa-search"></i></span>
-    <span class="nav-icons"><i class="fas fa-cog"></i></span>
-  </ul>
-</nav>
-
-<div class="sidenav">
-  <a href="#"><i class="fas fa-home side-icons"></i>HOME</a>
-  <a href="#"><i class="fas fa-user side-icons"></i>PROFILE</a>
-  <a href="#"><i class="fas fa-power-off side-icons"></i><%= link_to 'LOGOUT', logout_path, method: :delete %></a>
-</div>
-
-<%= render 'opinions/main' %>
+  <%= render 'opinions/main' %>
