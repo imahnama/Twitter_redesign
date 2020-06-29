@@ -2,10 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.navbar {
-  background-color: #4da6e4;
-}
-
 .main-body {
   display: grid;
   grid-template-columns: 75% 25%;
@@ -13,19 +9,6 @@
   margin-left: auto;
   background-color: #F5F6F8;
   height: 100vh;
-}
-
-.bck-color {
-  background-color: #4da6e4;
-}
-
-.main-nav {
-  width: 83%;
-  margin-left: auto;
-}
-
-.navbar-brand {
-  color: white;
 }
 
 .tweet-main {
@@ -37,59 +20,8 @@
   border-bottom: 1px solid lightgrey;
 }
 
- .tweet-box {
-  margin-top: 5em;
-  height: 30vh;
-}
-
-.nav-icons {
-  margin-right: 2em;
-}
-
-.sidenav-contents {
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 2em;
-}
-
-.side-icons {
-  margin-top: 0.5em;
-  margin-left: 1em;
-  color: white;
-}
-
-.sidenav {
-  height: 100%; /* Full-height: remove this if you want "auto" height */
-  width: 250px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #213346; /* Black */
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 20px;
-}
-
-/* The navigation menu links */
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 15px;
-  color: #818181;
-  display: block;
-}
-
 aside {
   height: 100vh;
-}
-
-.side-icons {
-  margin-right: 0.8em;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: white;
 }
 
 /* Style page content */
@@ -98,11 +30,6 @@ aside {
   padding: 0px 10px;
 }
 
-.form {
-  display: flex;
-  justify-content: center;
-  margin-top: 6em;
-}
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
