@@ -26,6 +26,7 @@
 
 
 ## Screenshots of the View
+
 ### Homepage
 ![screenshot](images/2.png)
 ### Log In
