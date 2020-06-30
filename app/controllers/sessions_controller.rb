@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      redirect_to user_path(user)
+      redirect_to opinions_path
     else
       render 'new'
     end
