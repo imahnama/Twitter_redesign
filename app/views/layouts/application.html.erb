@@ -11,67 +11,6 @@
   </head>
 
   <body>
-
-    <% if logged_in? %>
-
-    <nav class="navbar main-nav">
-      <a class="navbar-brand" href="#">
-        <img src="/docs/1.jpg" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
-        Hotel Reviews
-      </a>
-
-      <ul>
-        <span class="nav-icons"><i class="fas fa-pen"></i></span>
-        <span class="nav-icons"><i class="fas fa-envelope-square"></i></span>
-        <span class="nav-icons"><i class="fas fa-search"></i></span>
-        <span class="nav-icons"><i class="fas fa-cog"></i></span>
-      </ul>
-    </nav>
-
-    <div class="sidenav">
-      <div class="">
-        <div class="current-user">
-    <div class="d-flex ml-2 mb-4">
-      <% if current_user[:Photo].nil? %>
-        <%= user_gravatar @user %>
-      <% else %>
-        <%= image_tag current_user.Photo.thumb.url %>
-      <% end %>
-
-      <p class="text-light ml-2 mt-4 text-center"><%= current_user.Username %></p>
-    </div>
-  </div>
-
-  <div class="d-flex ml-2 text-white">
-    <div class="">
-      <div class="mr-3">
-        <p class="stat-no"><%= current_user.followers.size %></p>
-        <p class="stat-name">Following</p>
-      </div>
-    </div>
-    <div class="">
-      <div class="">
-        <p class="stat-no"><%= current_user.followers.size %></p>
-        <p class="stat-name">Followers</p>
-      </div>
-    </div>
-  </div>
-      </div>
-        <div class="sidenav-contents ">
-          <i class="fas fa-home side-icons"></i>
-          <%= link_to 'HOME', user_path(current_user.id) %>
-        </div>
-
-        <div class="sidenav-contents">
-        <i class="fas fa-user side-icons"></i>
-        <%= link_to 'PROFILE', user_path(current_user.id) %>
-       </div>
-        <div class="sidenav-contents ">
-          <i class="fas fa-power-off side-icons"></i>
-          <%= link_to 'LOGOUT', logout_path, method: :delete %>
-        </div>
-    </div>
-    <% end %>
     <%= yield %>
   </body>
 </html>
