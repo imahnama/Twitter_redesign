@@ -42,18 +42,18 @@
 
   <aside class="profile-aside h-100">
     <div class="d-flex flex-column justify-content-center mt-5">
-
       <% unless current_user.id == @user.id %>
-              <% if current_user.followed.any? { |person| person.Followedid == @user.id }%>
-                <%= link_to unfollow_path(@user), method: :delete, class: "font-unfollow-icon" do %>
-                  <i class="fas fa-minus-circle fa-2x"></i>
-                <% end %>
-              <%else%>
-                <%= link_to follow_path(@user), class: "font-follow-icon" do %>
-                  <i class="fas fa-plus-circle fa-2x"></i>
-                <% end %>
+            <% if current_user.followers.any? { |person| person.Followedid == @user.id }%>
+              <%= link_to unfollow_path(@user), method: :delete, class: "font-unfollow-icon" do %>
+                <i class="fas fa-minus-circle fa-2x"></i>
               <% end %>
-          <% end %>
+            <%else%>
+              <%= link_to follow_path(@user), class: "font-follow-icon" do %>
+                <i class="fas fa-plus-circle fa-2x"></i>
+              <% end %>
+            <% end %>
+        <% end %>
+
 
           <div class="ml-auto mr-auto">
             <% unless @user[:Photo].nil? %>
@@ -80,7 +80,7 @@
           </div>
 
           <div class="d-flex flex-column">
-            <p><%= current_user.followed.size %></p>
+            <p><%= current_user.followers.size %></p>
             <p class="p-2">Followers</p>
           </div>
         </div>
