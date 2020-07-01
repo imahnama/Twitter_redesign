@@ -22,17 +22,17 @@
 7. Create all the Three models and its associations
 8. Connect Front End to Back End.
 9. Test the models/features using Rspec.
-10. Deploy app using Netlify.
+10. Deploy app using Heroku.
 
 
 ## Screenshots of the View
 
 ### Homepage
-![screenshot](images/2.png)
+![screenshot](app/assets/images/2.png)
 ### Log In
-![screenshot](images/1.png)
+![screenshot](app/assets/images/1.png)
 ### Sign Up
-![screenshot](images/3.png)
+![screenshot](app/assets/images/3.png)
 
 
 ## Built With
@@ -41,9 +41,13 @@
 - Ruby on Rails v6.0.3
 - Gems used for testing: Capybara, Rspec-Rails, Shoulda-matchers and FactoryBot
 
+## Presentation Video
+
+[Video](https://www.loom.com/share/0e3c82f1a2f645518d42de8ba74b2249)
+
 ## Live Demo
 
-[Heroku App Link]()
+[Heroku App Link](https://polar-brook-39973.herokuapp.com/)
 
 ## Getting Started
 
