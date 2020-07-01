@@ -10,7 +10,7 @@ class OpinionsController < ApplicationController
     @opinion.AuthorId = current_user.id
 
     if @opinion.save
-      redirect_to user_path(current_user.id)
+      redirect_to opinions_path
     else
       render 'index'
     end
