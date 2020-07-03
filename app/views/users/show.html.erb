@@ -18,11 +18,7 @@
     <% Opinion.all.each do |opinion| if opinion.Author == current_user %>
       <div class="d-flex">
         <div class="">
-          <% if opinion.Author[:Photo].nil? %>
-            <%= user_gravatar opinion.Author %>
-          <% else %>
-            <%= image_tag opinion.Author.Photo.thumb.url %>
-          <% end %>
+        <%= current_user_gravatar(@user)%>
         </div>
         <div class="ml-3 mt-4">
           <h4><%= opinion.Author.Username %></h4>
@@ -81,12 +77,7 @@
         <div class="ml-1 mb-auto p-1"></div>
 
         <div class="p-1">
-          <% unless follower.follower[:Photo].nil? %>
-            <%= image_tag follower.follower_id.Photo.thumb.url %>
-          <% else %>
-            <%= user_gravatar follower.follower %>
-          <% end %>
-
+          <%= current_user_gravatar(@user) %>
           <div class="text-center p-2">
             <h6><%= follower.follower.Username %></h6>
           </div>
