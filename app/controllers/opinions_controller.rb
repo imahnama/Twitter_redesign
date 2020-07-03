@@ -21,5 +21,4 @@ class OpinionsController < ApplicationController
   def opinion_params
     params.require(:opinion).permit(:AuthorId, :Text)
   end
-
 end

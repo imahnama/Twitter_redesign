@@ -1,8 +1,7 @@
 class FollowingsController < ApplicationController
-
   before_action :find_user
 
-  def new;end
+  def new; end
 
   def create
     current_user.follow(@user)

@@ -82,28 +82,24 @@
 <div class="tweet-main mt-3 p-2">
   <h5 class="tweet-heading">Followed By</h5>
   <div class="d-flex flex-column">
-    <% Following.all.each do |followed| %>
+    <% Following.all.each do |follower| %>
 
       <div class="d-flex">
 
         <div class="ml-1 mb-auto p-1">
 
-          <% if current_user.following.any? %>
-          <%= link_to followings_path(followed_id: @user.id) do %>
-          <i class="fas fa-plus-circle fa-2x"></i>
-        <% end %>
-        <div class="p-1">
-          <% unless followed.followed[:Photo].nil? %>
-            <%= image_tag followed.follower_id.Photo.thumb.url %>
-          <% else %>
-            <%= user_gravatar followed.followed %>
-          <% end %>
-
-            <div class="text-center p-2">
-              <h6><%= followed.followed.Username %></h6>
-            </div>
           </div>
-        <% end %>
+
+          <div class="p-1">
+           <% unless follower.follower[:Photo].nil? %>
+             <%= image_tag follower.follower_id.Photo.thumb.url %>
+           <% else %>
+             <%= user_gravatar follower.follower %>
+           <% end %>
+
+             <div class="text-center p-2">
+               <h6><%= follower.follower.Username %></h6>
+             </div>
 
       </div>
     </div>
