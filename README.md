@@ -24,6 +24,11 @@
 9. Test the models/features using Rspec.
 10. Deploy app using Heroku.
 
+## Future Additions
+1. Ability to like opinions
+2. Ability to retweet
+3. Add comments to an opinion
+
 
 ## Screenshots of the View
 
