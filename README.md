@@ -33,6 +33,8 @@
 ![screenshot](app/assets/images/1.png)
 ### Sign Up
 ![screenshot](app/assets/images/3.png)
+### User Profile
+![screenshot](app/assets/images/4.png)
 
 
 ## Built With
