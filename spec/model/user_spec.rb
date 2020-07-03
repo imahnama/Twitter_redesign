@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
 
   describe 'associations' do
     it { should have_many(:opinions).with_foreign_key(:AuthorId).class_name('Opinion') }
-    it { should have_many(:followed).with_foreign_key(:Followerid).class_name('Following') }
-    it { should have_many(:followers).with_foreign_key(:Followedid).class_name('Following') }
+    it { should have_many(:following).with_foreign_key(:follower_id).class_name('Following') }
+    it { should have_many(:followers).with_foreign_key(:Followed_id).class_name('Following') }
   end
 end
