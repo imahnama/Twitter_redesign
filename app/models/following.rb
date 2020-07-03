@@ -1,8 +1,8 @@
 class Following < ApplicationRecord
-  belongs_to :Follower, foreign_key: 'Follwerid', class_name: 'User'
-  belongs_to :Followed, foreign_key: 'Followedid', class_name: 'User'
+  belongs_to :follower, class_name: "User"
+  belongs_to :followed, class_name: "User"
 
+  validates :follower_id, presence: true
+  validates :followed_id, presence: true
 
-  validates :Follwerid, uniqueness: { scope: :Followedid }
-  validates :Followedid, uniqueness: { scope: :Followerid }
 end
