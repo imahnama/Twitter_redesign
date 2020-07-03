@@ -1,118 +1,119 @@
+
 <%= render 'opinions/navs' %>
 <div class="main-body">
   <div class="w-100">
     <div class="">
 
-    <% unless @user[:CoverImage].nil? %>
-     <%= image_tag @user.CoverImage.standard.url %>
-     <% else %>
-      <img src="https://via.placeholder.com/650x250" class = "cover" alt="cover">
+      <% unless current_user[:CoverImage].nil? %>
+        <%= image_tag current_user.CoverImage.standard.url %>
+      <% else %>
+        <img src="https://via.placeholder.com/650x250" class="cover" alt="cover">
       <% end %>
-      </div>
+    </div>
 
-      <div class="tweet-box card w-80 ml-5 mr-5">
+    <div class="tweet-box card w-80 ml-5 mr-5">
 
-       <p class="ml-5 mt-2">Have an Opinion?</p>
+      <p class="ml-5 mt-2">Have an Opinion?</p>
 
-       <%= form_for Opinion.new, url: opinions_path  do |f| %>
-            <%= f.text_area :Text, class: "form-control w-75 tweet-head ml-5", placeholder: "Write your Opinion" %>
-            <%= f.submit "Post Opinion", class: "btn btn-primary w-25 ml-5 mt-2 mb-2" %>
+      <%= form_for Opinion.new, url: opinions_path do |f| %>
+      <%= f.text_area :Text, class: "form-control w-75 tweet-head ml-5", placeholder: "Write your Opinion" %>
+      <%= f.submit "Post Opinion", class: "btn btn-primary w-25 ml-5 mt-2 mb-2" %>
+    <% end %>
+  </div>
+  <div class="tweet-main mt-3 w-80 ml-5 mr-5 p-3">
+    <% Opinion.all.each do |opinion| if opinion.Author == current_user %>
+      <div class="d-flex">
+        <div class="">
+          <% if opinion.Author[:Photo].nil? %>
+            <%= user_gravatar opinion.Author %>
+          <% else %>
+            <%= image_tag opinion.Author.Photo.thumb.url %>
           <% end %>
         </div>
-        <div class="tweet-main mt-3 w-80 ml-5 mr-5 p-3">
-            <% Opinion.all.each do |opinion| if opinion.Author == current_user %>
-            <div class="d-flex">
-              <div class="">
-              <% if opinion.Author[:Photo].nil? %>
-                <%= user_gravatar opinion.Author %>
-              <% else %>
-                <%= image_tag opinion.Author.Photo.thumb.url %>
-              <% end %>
-              </div>
-            <div class="ml-3 mt-4">
-           <h4><%= opinion.Author.Username %></h4>
-            <p><%= opinion.Text %></p>
-          </div>
-            </div>
-            <% end %>
-            <% end %>
-          </div>
+        <div class="ml-3 mt-4">
+          <h4><%= opinion.Author.Username %></h4>
+          <p><%= opinion.Text %></p>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+</div>
+
+<aside class="profile-aside h-100">
+<div class="d-flex flex-column justify-content-center mt-5">
+
+
+   <%= current_user_following?(@user)%>
+
+  <div class="ml-auto mr-auto">
+    <div class="">
+
+  <%= current_user_gravatar(@user)%>
+    </div>
+
+
+    </div>
+  <div class="text-center mt-2">
+    <h5><%= @user.FullName %></h5>
+    <p>@<%= @user.Username %></p>
   </div>
 
+  <div class="container">
+    <div class="row text-center p-2 border">
+      <div class="d-flex flex-column border-right">
+        <p><%= @user.opinions.size %></p>
+        <p class="p-2">Opinions</p>
+      </div>
 
-  <aside class="profile-aside h-100">
-    <div class="d-flex flex-column justify-content-center mt-5">
-      <% unless current_user.id == @user.id %>
-            <% if current_user.followers.any? { |person| person.Followedid == @user.id }%>
-              <%= link_to unfollow_path(@user), method: :delete, class: "font-unfollow-icon" do %>
-                <i class="fas fa-minus-circle fa-2x"></i>
-              <% end %>
-            <%else%>
-              <%= link_to follow_path(@user), class: "font-follow-icon" do %>
-                <i class="fas fa-plus-circle fa-2x"></i>
-              <% end %>
-            <% end %>
+      <div class="d-flex flex-column border-right">
+        <p><%= @user.following.size %></p>
+        <p class="p-2">Following</p>
+      </div>
+
+      <div class="d-flex flex-column">
+        <p><%= @user.followers.size %></p>
+        <p class="p-2">Followers</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="tweet-main mt-3 p-2">
+  <h5 class="tweet-heading">Followed By</h5>
+  <div class="d-flex flex-column">
+    <% Following.all.each do |followed| %>
+
+      <div class="d-flex">
+
+        <div class="ml-1 mb-auto p-1">
+
+          <% if current_user.following.any? %>
+          <%= link_to followings_path(followed_id: @user.id) do %>
+          <i class="fas fa-plus-circle fa-2x"></i>
+        <% end %>
+        <div class="p-1">
+          <% unless followed.followed[:Photo].nil? %>
+            <%= image_tag followed.follower_id.Photo.thumb.url %>
+          <% else %>
+            <%= user_gravatar followed.followed %>
+          <% end %>
+
+            <div class="text-center p-2">
+              <h6><%= followed.followed.Username %></h6>
+            </div>
+          </div>
         <% end %>
 
-
-          <div class="ml-auto mr-auto">
-            <% unless @user[:Photo].nil? %>
-              <%= image_tag @user.Photo.medium.url, class: "rounded-circle" %>
-            <% else %>
-              <%= user_gravatar @user %>
-            <% end %>
-          </div>
-        <div class="text-center mt-2">
-          <h5><%= @user.FullName %></h5>
-          <p>@<%= @user.Username %></p>
-        </div>
-
-        <div class="container">
-        <div class="row text-center p-2 border">
-          <div class="d-flex flex-column border-right">
-            <p><%= @user.opinions.size %></p>
-            <p class="p-2">Opinions</p>
-          </div>
-
-          <div class="d-flex flex-column border-right">
-          <p><%= current_user.followers.size %></p>
-          <p class="p-2">Followings</p>
-          </div>
-
-          <div class="d-flex flex-column">
-            <p><%= current_user.followers.size %></p>
-            <p class="p-2">Followers</p>
-          </div>
-        </div>
       </div>
-      </div>
+    </div>
 
-      <div class="tweet-main mt-3 p-2">
-       <h5 class="tweet-heading">Followed By</h5>
 
-       <% Following.all.each do |follower| %>
-       <div class="ml-auto mr-auto">
-         <% unless follower.Follower[:Photo].nil? %>
-           <%= image_tag follower.Follower.Photo.thumb.url %>
-         <% else %>
-           <%= user_gravatar follower.Follower %>
-         <% end %>
-       </div>
-     <div class="text-center mt-2">
-       <h6><%= @user.FullName %></h6>
-     </div>
-     <% if current_user.followed.any? { |person| person.Followedid == follower.Follower.id }%>
-                  <%= link_to unfollow_path(follower.Follower), method: :delete, class: "follow-icons" do %>
-                      <i class="fas fa-minus-circle fa-2x"></i>
-                  <% end %>
-                <%else%>
-                  <%= link_to follow_path(follower.Follower), class: "follow-icons" do %>
-                    <i class="fas fa-plus-circle fa-2x"></i>
-                  <% end %>
-                <% end %>
 
-   </div>
-    <% end %>
-  </aside>
+</div>
+</div>
+<% end %>
+
+</aside>
 
 </div>

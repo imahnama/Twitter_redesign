@@ -5,57 +5,56 @@
     </div>
     <div class="tweet-box card w-80 ml-5 mr-5">
 
-     <p class="ml-5 mt-2">Have an Opinion?</p>
+      <p class="ml-5 mt-2">Have an Opinion?</p>
 
-     <%= form_for Opinion.new, url: opinions_path  do |f| %>
-          <%= f.text_area :Text, class: "form-control w-75 tweet-head ml-5", placeholder: "Write your Opinion" %>
-          <%= f.submit "Post Opinion", class: "btn btn-primary w-25 ml-5 mt-2 mb-2" %>
-        <% end %>
+      <%= form_for Opinion.new, url: opinions_path do |f| %>
+      <%= f.text_area :Text, class: "form-control w-75 tweet-head ml-5", placeholder: "Write your Opinion" %>
+      <%= f.submit "Post Opinion", class: "btn btn-primary w-25 ml-5 mt-2 mb-2" %>
+    <% end %>
+  </div>
+  <div class="tweet-main mt-3 w-80 ml-5 mr-5">
+    <p class="tweet-heading">NEW OPINIONS</p>
+
+    <p>
+      <% Opinion.all.each do |opinion| %>
+      </p>
+      <div class="d-flex p-3">
+
+        <div class="mr-2">
+          <% if opinion.Author[:Photo].nil? %>
+            <%= user_gravatar opinion.Author %>
+          <% else %>
+            <%= image_tag opinion.Author.Photo.thumb.url %>
+          <% end %>
+        </div>
+        <div>
+          <h4><%= opinion.Author.Username %></h4>
+          <p><%= opinion.Text %></p>
+
+        </div>
       </div>
-      <div class="tweet-main mt-3 w-80 ml-5 mr-5">
-       <p class="tweet-heading">NEW OPINIONS</p>
+    <% end %>
+  </div>
+</div>
 
-         <p><% Opinion.all.each do |opinion| %></p>
-         <div class="d-flex p-3">
+<aside class="mt-4 pr-5">
+  <p class="tweet-heading ml-2">WHO TO FOLLOW</p>
+  <% @users.each do |user| %>
+    <div class="d-flex">
+      <div class="mb-3">
 
-         <div class="mr-2">
-              <% if opinion.Author[:Photo].nil? %>
-                <%= user_gravatar opinion.Author %>
-              <% else %>
-                <%= image_tag opinion.Author.Photo.thumb.url %>
-              <% end %>
-            </div>
-            <div>
-            <h4><%= opinion.Author.Username %></h4>
-            <p><%= opinion.Text %></p>
+        <%= link_to user_path(user) do %>
+        <%= current_user_gravatar(user)%>
+      </div>
+      <div class="ml-3 mt-5">
+        <h6><%= user.Username %></h6>
+      <% end %>
 
-           </div>
-           </div>
-         <% end %>
     </div>
   </div>
 
-  <aside class="mt-4 pr-5">
-    <p class="tweet-heading ml-2">WHO TO FOLLOW</p>
-    <% User.all.each do |user| if user != current_user %>
-          <div class="d-flex">
-            <div class="mb-3">
-              <%= link_to user_path(user) do %>
-                <% unless user[:Photo].nil? %>
-                  <%= image_tag user.Photo.thumb.url %>
-                <% else %>
-                  <%= user_gravatar current_user %>
-                <% end %>
-                </div>
-                <div class="ml-3 mt-5">
-                   <h6><%= user.Username %></h6>
-                   <% end %>
-                </div>
-        </div>
+<% end %>
 
-        <% end %>
-      <% end %>
-
-  </aside>
+</aside>
 
 </section>
