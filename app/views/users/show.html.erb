@@ -1,14 +1,8 @@
-
 <%= render 'opinions/navs' %>
 <div class="main-body">
   <div class="w-100">
     <div class="">
-
-      <% unless current_user[:CoverImage].nil? %>
-        <%= image_tag current_user.CoverImage.standard.url %>
-      <% else %>
-        <img src="https://via.placeholder.com/650x250" class="cover" alt="cover">
-      <% end %>
+      <img src="https://via.placeholder.com/650x250" class="cover" alt="cover">
     </div>
 
     <div class="tweet-box card w-80 ml-5 mr-5">
@@ -43,17 +37,15 @@
 <aside class="profile-aside h-100">
 <div class="d-flex flex-column justify-content-center mt-5">
 
-
-   <%= current_user_following?(@user)%>
+  <%= current_user_following?(@user)%>
 
   <div class="ml-auto mr-auto">
     <div class="">
 
-  <%= current_user_gravatar(@user)%>
+      <%= current_user_gravatar(@user)%>
     </div>
 
-
-    </div>
+  </div>
   <div class="text-center mt-2">
     <h5><%= @user.FullName %></h5>
     <p>@<%= @user.Username %></p>
@@ -86,28 +78,24 @@
 
       <div class="d-flex">
 
-        <div class="ml-1 mb-auto p-1">
+        <div class="ml-1 mb-auto p-1"></div>
 
+        <div class="p-1">
+          <% unless follower.follower[:Photo].nil? %>
+            <%= image_tag follower.follower_id.Photo.thumb.url %>
+          <% else %>
+            <%= user_gravatar follower.follower %>
+          <% end %>
+
+          <div class="text-center p-2">
+            <h6><%= follower.follower.Username %></h6>
           </div>
 
-          <div class="p-1">
-           <% unless follower.follower[:Photo].nil? %>
-             <%= image_tag follower.follower_id.Photo.thumb.url %>
-           <% else %>
-             <%= user_gravatar follower.follower %>
-           <% end %>
-
-             <div class="text-center p-2">
-               <h6><%= follower.follower.Username %></h6>
-             </div>
-
+        </div>
       </div>
+
     </div>
-
-
-
-</div>
-</div>
+  </div>
 <% end %>
 
 </aside>
