@@ -16,4 +16,24 @@ RSpec.describe User, type: :model do
     it { should have_many(:following).through(:active_followings).source(:followed) }
     it { should have_many(:followers).through(:passive_followings).source(:follower) }
   end
+
+  describe 'user class methods' do
+    before(:each) do
+      @user1 = User.create!(Username: 'Sun', FullName: 'Ali')
+      @user2 = User.create!(Username: 'Odong', FullName: 'Mike')
+    end
+    describe 'follow' do
+      it 'checks if current user has followed user' do
+        actual = @user1.follow(@user2)
+        expect(@user1.following?(@user2)).to eq(true)
+      end
+    end
+    describe 'unfollow' do
+      it 'checks if current user has unfollowed user' do
+        actual = @user1.follow(@user2)
+        unfollow = @user1.unfollow(@user2)
+        expect(@user1.following?(@user2)).to eq(false)
+      end
+    end
+end
 end
