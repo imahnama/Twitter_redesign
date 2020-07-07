@@ -15,18 +15,16 @@
     <% end %>
   </div>
   <div class="tweet-main mt-3 w-80 ml-5 mr-5 p-3">
-    <% Opinion.all.each do |opinion| if opinion.Author == current_user %>
+
       <div class="d-flex">
         <div class="">
-        <%= current_user_gravatar(@user)%>
         </div>
         <div class="ml-3 mt-4">
-          <h4><%= opinion.Author.Username %></h4>
-          <p><%= opinion.Text %></p>
+
+          <p><%= user_opinions %></p>
         </div>
       </div>
-    <% end %>
-  <% end %>
+
 </div>
 </div>
 
