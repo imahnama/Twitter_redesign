@@ -13,8 +13,6 @@ module UsersHelper
     end
   end
 
-
-
   def current_user_following?(user)
     return nil unless current_user.id != @user.id
 
@@ -28,8 +26,4 @@ module UsersHelper
 
     end
   end
-
-
-
-
 end

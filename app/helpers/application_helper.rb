@@ -1,8 +1,8 @@
 module ApplicationHelper
   def all_user_opinions
-      @reviews = Opinion.all
+    @reviews = Opinion.all
 
-       render partial: 'opinions/all_opinions', collection: @reviews, as: :review
+    render partial: 'opinions/all_opinions', collection: @reviews, as: :review
   end
 
   def user_opinions
@@ -18,8 +18,8 @@ module ApplicationHelper
       user_gravatar opinion.Author
     else
       image_tag opinion.Author.Photo.thumb.url
-     end
-   end
+    end
+  end
 
   def following_size
     current_user.following.size
@@ -32,4 +32,4 @@ module ApplicationHelper
   def user_name
     current_user.Username
   end
-   end
+end
