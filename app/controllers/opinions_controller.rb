@@ -1,8 +1,8 @@
 class OpinionsController < ApplicationController
   def index
     @opinion = Opinion.new
-    @opinions = Opinion.order('created_at DESC').includes(:Author).limit(5)
-    @users = User.all_users(current_user.id).order('created_at DESC')
+    @opinions = Opinion.ordered_by_most_recent
+    @users = User.all_users(current_user.id)
   end
 
   def create

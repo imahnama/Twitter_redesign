@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+
   has_many :opinions, foreign_key: 'AuthorId', class_name: 'Opinion'
 
   has_many :active_followings, class_name: 'Following', foreign_key: 'follower_id', dependent: :destroy
