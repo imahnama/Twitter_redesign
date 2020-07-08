@@ -8,7 +8,7 @@ module ApplicationHelper
   def user_opinions
     @reviews = Opinion.where(AuthorId: current_user.id)
 
-    render partial: 'opinions/all_opinions', collection: @reviews, as: :review
+    render partial: 'opinions/all_opinions', collection: @reviews.reverse, as: :review
   end
 
   # @all_opinions.Text
