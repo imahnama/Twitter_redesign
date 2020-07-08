@@ -1,8 +1,8 @@
 module ApplicationHelper
   def all_user_opinions
-    @reviews = Opinion.all
+    @reviews = Opinion.all.includes(:Author).limit(5)
 
-    render partial: 'opinions/all_opinions', collection: @reviews, as: :review
+    render partial: 'opinions/all_opinions', collection: @reviews.reverse, as: :review
   end
 
   def user_opinions
