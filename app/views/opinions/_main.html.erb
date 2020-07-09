@@ -1,0 +1,52 @@
+<section class="main-body">
+  <div>
+    <div class="border-bottom border-right">
+      <h5 class="ml-5 p-2">OPINIONS</h5>
+    </div>
+    <div class="tweet-box card w-80 ml-5 mr-5">
+
+      <p class="ml-5 mt-2">Have an Opinion?</p>
+
+      <%= form_for Opinion.new, url: opinions_path do |f| %>
+      <%= f.text_area :Text, class: "form-control w-75 tweet-head ml-5", placeholder: "Write your Opinion" %>
+      <%= f.submit "Post Opinion", class: "btn btn-primary w-25 ml-5 mt-2 mb-2" %>
+    <% end %>
+  </div>
+  <div class="tweet-main mt-3 w-80 ml-5 mr-5">
+    <p class="tweet-heading">NEW OPINIONS</p>
+
+      <div class="d-flex p-3">
+      
+        <div class="ml-2 mt-auto">
+          <p><%= all_user_opinions %></p>
+        </div>
+        <div>
+
+
+        </div>
+      </div>
+
+  </div>
+</div>
+
+<aside class="mt-4 pr-5">
+  <p class="tweet-heading ml-2">WHO TO FOLLOW</p>
+  <% @users.each do |user| %>
+    <div class="d-flex">
+      <div class="mb-3">
+
+        <%= link_to user_path(user) do %>
+        <%= current_user_gravatar(user)%>
+      </div>
+      <div class="ml-3 mt-5">
+        <h6><%= user.Username %></h6>
+      <% end %>
+
+    </div>
+  </div>
+
+<% end %>
+
+</aside>
+
+</section>
