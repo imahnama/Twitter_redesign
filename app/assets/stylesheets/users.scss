@@ -1,0 +1,47 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.main-body {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  width: 83%;
+  margin-left: auto;
+  background-color: #F5F6F8;
+  height: 100vh;
+}
+
+.picture {
+  width: 304px;
+  height: 236px;
+
+}
+
+.cover {
+  width: 100%;
+}
+
+.tweet-main {
+  background-color: white
+}
+
+.tweet-heading {
+  color: #4da6e4;
+  border-bottom: 1px solid lightgrey;
+}
+
+aside {
+  height: 100vh;
+}
+
+/* Style page content */
+.main {
+  margin-left: 160px; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
